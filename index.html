@@ -101,9 +101,6 @@ i, em, .italic-text { font-family: var(--f-italic); font-style: italic; font-wei
 .stat-box { text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: default; }
 @media (hover: hover) { .stat-box:hover { transform: scale(1.1); } }
 .stat-number-wrap { display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: var(--c-primary); }
-.stat-number-wrap::before, .stat-number-wrap::after { content: '❦'; font-size: 1rem; opacity: 0.7; }
-.stat-number-wrap::before { transform: rotate(90deg); }
-.stat-number-wrap::after { transform: rotate(-90deg); }
 .stat-number { font-size: clamp(2rem, 5vw, 3rem); font-weight: bold; font-family: var(--f-display); margin-bottom: 0.25rem; }
 .stat-box p { font-size: clamp(0.7rem, 2.5vw, 1rem); margin: 0; line-height: 1.2; color: var(--c-text); letter-spacing: 0.1em; }
 
@@ -189,29 +186,43 @@ inset: 0;
 background: linear-gradient(0deg, #1A0A00 0%, rgba(26,10,0,0.1) 50%, rgba(26,10,0,0.4) 100%);
 z-index: -1;
 }
-.hero-content { z-index: 1; color: #fdfbf7; max-inline-size: 800px; margin-block-start: 35vh; }
+.hero-content { z-index: 1; color: #fdfbf7; max-inline-size: 800px; margin-block-start: 50vh; }
 .hero h1 { font-family: var(--f-display); font-size: var(--fs-hero); line-height: 1.1; margin-block-end: var(--sp-s); max-inline-size: 100%; }
 .hero p { font-family: var(--f-italic); font-size: clamp(1.5rem, 5vw, 2.5rem); font-weight: 600; font-style: italic; color: #FFF2D8; margin-block-end: var(--sp-m); max-inline-size: 100%; letter-spacing: 0.02em; text-transform: none; text-shadow: 1px 1px 0px #4d3627, 2px 2px 0px #1A0A00, 3px 3px 5px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.8); }
 .btn-primary {
-background: var(--c-primary);
-color: var(--c-bg);
-padding-inline: var(--sp-l);
-padding-block: var(--sp-s);
-text-transform: uppercase;
-letter-spacing: 0.12em;
-font-weight: 300;
-font-family: var(--f-body);
-border: none;
-cursor: pointer;
-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
+  background: linear-gradient(135deg, #F8E5A1 0%, #D4AF37 50%, #8B6914 100%);
+  color: #1A0A00;
+  padding-inline: clamp(2rem, 5vw, 3.5rem);
+  padding-block: clamp(0.75rem, 2vw, 1.25rem);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  font-family: var(--f-display);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  border: 1px solid #FFF2D8;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3), inset 0 2px 5px rgba(255,255,255,0.5);
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  transition: left 0.6s ease;
 }
 @media (hover: hover) { 
   .btn-primary:hover { 
-    transform: translateY(-3px) scale(1.02); 
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4); 
-    filter: brightness(1.1);
+    transform: translateY(-3px) scale(1.03); 
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6), inset 0 2px 5px rgba(255,255,255,0.7); 
   } 
+  .btn-primary:hover::after {
+    left: 200%;
+  }
 }
 .btn-primary:active { transform: translateY(1px) scale(0.98); box-shadow: 0 2px 10px rgba(212, 175, 55, 0.2); }
 
@@ -289,19 +300,6 @@ box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
     transform: scale(1.15);
   }
 }
-.service::before, .service::after {
-  content: '❦';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--c-primary);
-  font-size: 1.5rem;
-  background: #1e1008;
-  padding: 0 10px;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-}
-.service::before { top: -14px; }
-.service::after { bottom: -14px; transform: translateX(-50%) rotate(180deg); }
 
 .icon-wrap { inline-size: 35px; block-size: 35px; display: grid; place-items: center; margin-block-end: 0.25rem; color: var(--c-primary); margin-inline: auto; }
 .icon-wrap span { font-size: 24px; text-shadow: 0 0 10px rgba(212, 175, 55, 0.8); }
@@ -373,8 +371,7 @@ footer { border-block-start: 1px solid #D4AF3740; padding-block: var(--sp-l); te
 </header>
 <main>
 <section class="hero">
-<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuClWtdPPzT0YXeYOHebp93svTM6_8yxmBmpB22hl-D3OW4fUdje0hCjqvtikHDP2J1S5y0PdHhCCLD8L5oGxLc-sX1rKzlqd5xHaVjp5Z_3ASIj39kQfS3he9wGPRYYzNCE-hVW4vRc7-U17cvKbwu8cfN-f3yipaZt1nZ6popqKiatXuDDfGEb978jdiFOFCloegXQhRQkx3X3MO4strrVJeMCSLvPpEypoTvBPb9sMIj3fF_StSblS4T68mFxJaegKHxIhXHESAM" alt="Hero"
-srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuClWtdPPzT0YXeYOHebp93svTM6_8yxmBmpB22hl-D3OW4fUdje0hCjqvtikHDP2J1S5y0PdHhCCLD8L5oGxLc-sX1rKzlqd5xHaVjp5Z_3ASIj39kQfS3he9wGPRYYzNCE-hVW4vRc7-U17cvKbwu8cfN-f3yipaZt1nZ6popqKiatXuDDfGEb978jdiFOFCloegXQhRQkx3X3MO4strrVJeMCSLvPpEypoTvBPb9sMIj3fF_StSblS4T68mFxJaegKHxIhXHESAM 800w" sizes="100vw">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuClWtdPPzT0YXeYOHebp93svTM6_8yxmBmpB22hl-D3OW4fUdje0hCjqvtikHDP2J1S5y0PdHhCCLD8L5oGxLc-sX1rKzlqd5xHaVjp5Z_3ASIj39kQfS3he9wGPRYYzNCE-hVW4vRc7-U17cvKbwu8cfN-f3yipaZt1nZ6popqKiatXuDDfGEb978jdiFOFCloegXQhRQkx3X3MO4strrVJeMCSLvPpEypoTvBPb9sMIj3fF_StSblS4T68mFxJaegKHxIhXHESAM=s2048" alt="Hero">
 <div class="hero-content">
 <p>Capturing Timeless Heritage through Royal Cinematic Narratives</p>
 <button class="btn-primary" onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">View Portfolio</button>
@@ -385,22 +382,22 @@ srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuClWtdPPzT0YXeYOHebp9
 <p style="text-align: center; font-family: var(--f-italic); font-style: italic; font-size: clamp(1.2rem, 3vw, 1.5rem); color: var(--c-muted); margin-block-end: var(--sp-m);">Click on photo to expand</p>
 <div class="deck-container" tabindex="0">
 <div class="deck-card">
-<img src="file:///C:/Users/Karampreet%20Singh/.gemini/antigravity/brain/0dfa85d6-bfdb-46a4-9aa7-f4bdc0c775e0/haldi_ceremony_1780769317676.png" alt="Haldi Ceremony">
+<img src="images/haldi_ceremony_1780769317676.png" alt="Haldi Ceremony">
 <div class="card-content"><h3>Haldi: The Golden Hour</h3></div>
 </div>
 <div class="deck-card">
-<img src="file:///C:/Users/Karampreet%20Singh/.gemini/antigravity/brain/0dfa85d6-bfdb-46a4-9aa7-f4bdc0c775e0/ring_ceremony_1780769331493.png" alt="Ring Ceremony">
+<img src="images/ring_ceremony_1780769331493.png" alt="Ring Ceremony">
 <div class="card-content"><h3>Ring Ceremony: The Promise</h3></div>
 </div>
 <div class="deck-card">
-<img src="file:///C:/Users/Karampreet%20Singh/.gemini/antigravity/brain/0dfa85d6-bfdb-46a4-9aa7-f4bdc0c775e0/mehendi_ceremony_1780769344372.png" alt="Mehendi">
+<img src="images/mehendi_ceremony_1780769344372.png" alt="Mehendi">
 <div class="card-content"><h3>Mehendi: Intricate Traditions</h3></div>
 </div>
 </div>
 </section>
 <section class="expertise-wrapper fade-section">
 <h2 style="font-family:var(--f-display); font-size:var(--fs-h2); text-align:center; margin:0;">Our Expertise</h2>
-<div class="flourish"><span>❦</span></div>
+<div class="flourish"></div>
 <div class="services" style="padding:0;">
 <div class="grid-3">
 <div class="service">
@@ -435,7 +432,7 @@ srcset="https://lh3.googleusercontent.com/aida-public/AB6AXuClWtdPPzT0YXeYOHebp9
 </div>
 <form id="inquiry-form" style="background:var(--c-surface); padding:clamp(2rem, 5vw, 3rem); border:1px solid color-mix(in srgb, var(--c-primary) 30%, transparent); display: flex; flex-direction: column; gap: var(--sp-m); border-radius: 12px; box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05);">
 <h3 style="font-family:var(--f-display); font-size:clamp(1.5rem, 4vw, 2rem); color:var(--c-primary); text-align:center; text-transform:uppercase; margin:0; letter-spacing: 0.1em;">Contact Us</h3>
-<div class="flourish" style="margin-block-start: 0; margin-block-end: 0.5rem;"><span>❦</span></div>
+<div class="flourish" style="margin-block-start: 0; margin-block-end: 0.5rem;"></div>
 <div class="form-group"><input type="text" name="Name" placeholder="Your Name" required></div>
 <div class="form-group"><input type="date" name="EventDate" required style="color-scheme: dark;"></div>
 <div class="form-group"><input type="text" name="EventType" placeholder="Event Type (e.g. Wedding, Pre-Wedding)" required></div>
