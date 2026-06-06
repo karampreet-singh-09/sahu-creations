@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Gallery - Sahu Creations</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@1,300&family=Great+Vibes&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root { --c-bg: #1A0A00; --c-primary: #D4AF37; --c-text: #FAF0DC; --f-display: 'Cinzel', serif; --f-body: 'Josefin Sans', sans-serif; }
+body { background: var(--c-bg); color: var(--c-text); font-family: var(--f-body); margin: 0; padding: 2rem; }
+h1 { font-family: var(--f-display); color: var(--c-primary); text-align: center; margin-bottom: 2rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+a.back-btn { color: var(--c-primary); text-decoration: none; display: inline-block; margin-bottom: 2rem; border: 1px solid var(--c-primary); padding: 0.5rem 1rem; border-radius: 4px; transition: all 0.3s; }
+a.back-btn:hover { background: var(--c-primary); color: var(--c-bg); }
+.masonry-grid { column-count: 2; column-gap: 1rem; max-width: 1200px; margin: 0 auto; }
+@media (min-width: 600px) { .masonry-grid { column-count: 3; } }
+@media (min-width: 900px) { .masonry-grid { column-count: 4; } }
+.masonry-item { break-inside: avoid; margin-bottom: 1rem; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.5); border: 1px solid rgba(212,175,55,0.3); transition: transform 0.3s; }
+.masonry-item:hover { transform: scale(1.02); border-color: rgba(212,175,55,0.8); z-index: 10; position: relative;}
+.masonry-item img { width: 100%; height: auto; display: block; }
+</style>
+</head>
+<body>
+<a href="index.html" class="back-btn">&larr; Back to Home</a>
+<h1>Our Wedding Gallery</h1>
+<div class="masonry-grid">
+  <div class="masonry-item"><img src="images/wedding_1_1780780713505.png" alt="Indian bride portrait" loading="lazy"></div>
+  <div class="masonry-item"><img src="images/wedding_2_1780780726405.png" alt="Indian groom portrait" loading="lazy"></div>
+  <div class="masonry-item"><img src="images/wedding_3_1780780739743.png" alt="Bride and groom holding hands" loading="lazy"></div>
+  <div class="masonry-item"><img src="images/wedding_4_1780780752445.png" alt="Haldi ceremony" loading="lazy"></div>
+  <div class="masonry-item"><img src="images/wedding_5_1780780766152.png" alt="Bridal Mehendi henna" loading="lazy"></div>
+  <div class="masonry-item"><img src="images/wedding_6_1780780778778.png" alt="Vidaai emotional ceremony" loading="lazy"></div>
+  <div class="masonry-item"><img src="images/wedding_7_1780780791193.png" alt="Wedding venue decoration at night" loading="lazy"></div>
+  <div class="masonry-item"><img src="images/wedding_8_1780780806306.png" alt="Bride twirling in lehenga" loading="lazy"></div>
+  <div class="masonry-item"><img src="images/wedding_9_1780780821444.png" alt="Groom riding horse in Baraat" loading="lazy"></div>
+  <div class="masonry-item"><img src="images/wedding_10_1780780832777.png" alt="Wedding couple taking pheras" loading="lazy"></div>
+  <div class="masonry-item"><img src="images/wedding_11_1780780846106.png" alt="Jaimala garland exchange" loading="lazy"></div>
+  <div class="masonry-item"><img src="images/wedding_12_1780780859473.png" alt="Wedding rings macro photography" loading="lazy"></div>
+  <div class="masonry-item"><img src="images/wedding_13_1780780872083.png" alt="Bridal gold jewelry" loading="lazy"></div>
+  <div class="masonry-item"><img src="images/wedding_14_1780780885199.png" alt="Wedding couple sunset silhouette" loading="lazy"></div>
+</div>
+</body>
+</html>
