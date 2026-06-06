@@ -197,7 +197,7 @@ z-index: 50;
 background: color-mix(in srgb, var(--c-bg) 80%, transparent);
 backdrop-filter: blur(10px);
 border-block-end: 1px solid color-mix(in srgb, var(--c-primary) 30%, transparent);
-padding-block: clamp(1rem, 3vw, 1.5rem);
+padding-block: clamp(0.5rem, 1.5vw, 1rem);
 padding-inline: var(--sp-m);
 display: flex;
 flex-direction: row;
@@ -206,7 +206,7 @@ justify-content: space-between;
 max-inline-size: 100%;
 transition: padding-block 0.3s ease, transform 0.3s ease;
 }
-header.scrolled { padding-block: clamp(0.5rem, 2vw, 1rem); background: rgba(26, 10, 0, 0.9); border-block-end: 1px solid #D4AF3740; }
+header.scrolled { padding-block: clamp(0.2rem, 1vw, 0.5rem); background: rgba(26, 10, 0, 0.9); border-block-end: 1px solid #D4AF3740; }
 .brand { 
   font-family: var(--f-logo); 
   font-size: clamp(2rem, 5vw, 3.5rem); 
@@ -464,7 +464,7 @@ footer { border-block-start: 1px solid #D4AF3740; padding-block: var(--sp-l); te
 <header>
 <div class="brand">Sahu Creations</div>
 <nav aria-label="Main Navigation">
-  <a href="#contact" class="nav-btn" aria-label="Contact Us">Contact Us</a>
+  <a href="#contact" onclick="event.preventDefault(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="nav-btn" aria-label="Contact Us">Contact Us</a>
 </nav>
 </header>
 <main>
@@ -534,7 +534,7 @@ footer { border-block-start: 1px solid #D4AF3740; padding-block: var(--sp-l); te
 </div>
 </section>
 
-<section class="container contact">
+<section id="contact" class="container contact">
 <div>
 <h2 style="font-family:var(--f-display); font-size:var(--fs-h2); margin-block-end:var(--sp-m);">Let's Create Your Legend</h2>
 <p>Every royal story deserves a narrator who understands the weight of heritage. Contact our photography team today to discuss your vision.</p>
