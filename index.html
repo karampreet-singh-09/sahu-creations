@@ -197,12 +197,12 @@ z-index: 50;
 background: color-mix(in srgb, var(--c-bg) 80%, transparent);
 backdrop-filter: blur(10px);
 border-block-end: 1px solid color-mix(in srgb, var(--c-primary) 30%, transparent);
-padding-block: clamp(1.5rem, 4vw, 2.5rem);
+padding-block: clamp(1rem, 3vw, 1.5rem);
 padding-inline: var(--sp-m);
 display: flex;
-flex-wrap: wrap;
+flex-direction: row;
 align-items: center;
-justify-content: center;
+justify-content: space-between;
 max-inline-size: 100%;
 transition: padding-block 0.3s ease, transform 0.3s ease;
 }
@@ -214,16 +214,12 @@ header.scrolled { padding-block: clamp(0.5rem, 2vw, 1rem); background: rgba(26, 
   font-style: normal;
   color: var(--c-primary); 
   z-index: 51; 
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   text-align: center;
   white-space: nowrap;
   letter-spacing: normal;
   text-transform: none;
-  margin-top: 10px;
 }
-nav { display: none; gap: var(--sp-m); align-items: center; max-inline-size: 100%; margin-inline-start: auto; font-family: var(--f-body); font-weight: 300; letter-spacing: 0.12em; }
+nav { display: flex; gap: var(--sp-m); align-items: center; max-inline-size: 100%; margin: 0; font-family: var(--f-body); font-weight: 300; letter-spacing: 0.12em; }
 .nav-link { text-transform: uppercase; font-size: .875rem; }
 @media (hover: hover) { .nav-link:hover { color: var(--c-primary); } }
 .inquire-btn {
@@ -239,11 +235,28 @@ font-family: var(--f-body);
 cursor: pointer;
 transition: transform .3s;
 }
-@media (hover: hover) { .inquire-btn:hover { transform: scale(1.05); } }
-
-@media (min-width: 768px) {
-nav { display: flex; }
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #F8E5A1 0%, #D4AF37 50%, #8B6914 100%);
+  color: #1A0A00;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  transition: transform 0.3s;
+  line-height: normal;
 }
+.nav-btn:hover {
+  transform: scale(1.05);
+}
+@media (hover: hover) { .inquire-btn:hover { transform: scale(1.05); } }
 
 .hero {
 position: relative;
@@ -451,15 +464,14 @@ footer { border-block-start: 1px solid #D4AF3740; padding-block: var(--sp-l); te
 <header>
 <div class="brand">Sahu Creations</div>
 <nav aria-label="Main Navigation">
-  <a href="https://www.instagram.com/it.ansh_01?igsh=MXd5Z3Q5em9teGNucw==" class="nav-link" target="_blank" aria-label="Visit our Instagram page">Instagram</a>
+  <a href="#contact" class="nav-btn" aria-label="Contact Us">Contact Us</a>
 </nav>
 </header>
 <main>
 <section class="hero">
-<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuClWtdPPzT0YXeYOHebp93svTM6_8yxmBmpB22hl-D3OW4fUdje0hCjqvtikHDP2J1S5y0PdHhCCLD8L5oGxLc-sX1rKzlqd5xHaVjp5Z_3ASIj39kQfS3he9wGPRYYzNCE-hVW4vRc7-U17cvKbwu8cfN-f3yipaZt1nZ6popqKiatXuDDfGEb978jdiFOFCloegXQhRQkx3X3MO4strrVJeMCSLvPpEypoTvBPb9sMIj3fF_StSblS4T68mFxJaegKHxIhXHESAM=s1080-rw" alt="Premium Wedding Photographer background image capturing a beautiful moment" width="1920" height="1080" fetchpriority="high">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuClWtdPPzT0YXeYOHebp93svTM6_8yxmBmpB22hl-D3OW4fUdje0hCjqvtikHDP2J1S5y0PdHhCCLD8L5oGxLc-sX1rKzlqd5xHaVjp5Z_3ASIj39kQfS3he9wGPRYYzNCE-hVW4vRc7-U17cvKbwu8cfN-f3yipaZt1nZ6popqKiatXuDDfGEb978jdiFOFCloegXQhRQkx3X3MO4strrVJeMCSLvPpEypoTvBPb9sMIj3fF_StSblS4T68mFxJaegKHxIhXHESAM=s2048" alt="Premium Wedding Photographer background image capturing a beautiful moment" width="1920" height="1080" fetchpriority="high">
 <div class="hero-content">
 <h1 class="sr-only" style="display:none;">Sahu Creations - Premium Wedding Photography & Cinematic Films</h1>
-<p>Capturing Timeless Heritage through Royal Cinematic Narratives</p>
 <button class="btn-primary" onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})" aria-label="Scroll to view our wedding photography portfolio">View Portfolio</button>
 </div>
 </section>
