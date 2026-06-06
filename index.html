@@ -434,7 +434,7 @@ footer { border-block-start: 1px solid #D4AF3740; padding-block: var(--sp-l); te
 <h3 style="font-family:var(--f-display); font-size:clamp(1.5rem, 4vw, 2rem); color:var(--c-primary); text-align:center; text-transform:uppercase; margin:0; letter-spacing: 0.1em;">Contact Us</h3>
 <div class="flourish" style="margin-block-start: 0; margin-block-end: 0.5rem;"></div>
 <div class="form-group"><input type="text" name="Name" placeholder="Your Name" required></div>
-<div class="form-group"><input type="date" name="EventDate" required style="color-scheme: dark;"></div>
+<div class="form-group"><input type="text" placeholder="Date" onfocus="(this.type='date')" onblur="(this.type=(this.value==''?'text':'date'))" name="EventDate" required style="color-scheme: dark;"></div>
 <div class="form-group"><input type="text" name="EventType" placeholder="Event Type (e.g. Wedding, Pre-Wedding)" required></div>
 <button type="submit" class="btn-primary" style="inline-size:100%; margin-block-start: 0.5rem;">Send Inquiry</button>
 <p id="form-msg" style="margin: 0; text-align: center; display: none; font-family: var(--f-italic);"></p>
@@ -443,8 +443,8 @@ footer { border-block-start: 1px solid #D4AF3740; padding-block: var(--sp-l); te
 </main>
 <footer class="container">
 <div class="footer-links">
-<a href="#">Privacy Policy</a>
-<a href="#">Terms of Service</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="terms-of-service.html">Terms of Service</a>
 </div>
 </footer>
 
